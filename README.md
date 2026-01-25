@@ -1,4 +1,4 @@
-# STES Rocketry — Website (2.1)
+# STES Rocketry — Website
 
 A static website for STES Rocketry, a student-led rocketry team showcasing projects, team members, sponsors, and contact information.
 
