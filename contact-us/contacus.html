@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3NZWMYC10"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-K3NZWMYC10");
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="../imgs/oldblacklogo.png" />
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="contact.css" />
+  <link rel="stylesheet" href="../page-transition.css" />
+  <script src="../page-transition.js"></script>
+  <link rel="canonical" href="https://stesrocketry.in/" />
+  <meta name="robots" content="noindex, nofollow" />
+</head>
+
+<body>
+  <div class="page">
+    <nav class="navbar">
+      <div class="logo">
+        <img src="../imgs/logo.png" alt="" />
+      </div>
+      <div class="nav-center nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../projects/projects.html">Projects</a>
+        <a href="../sponsors/sponsors.html">Sponsors</a>
+        <a href="../members/members.html">Members</a>
+        <!-- <a href="../archive/archive.html">Archive</a>-->
+        <a href="../contact-us/contacus.html" id="contact">Contact Us</a>
+      </div>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </nav>
+
+    <div class="side-menu">
+      <a href="../index.html">Home</a>
+      <a href="../projects/projects.html">Projects</a>
+      <a href="../sponsors/sponsors.html">Sponsors</a>
+      <a href="../members/members.html">Members</a>
+      <!-- <a href="../archive/archive.html">Archive</a>-->
+      <a href="../contact-us/contacus.html" id="contact">Contact Us</a>
+    </div>
+    <div class="overlay"></div>
+    <!-- Contact Section -->
+    <div class="split-container">
+      <!-- Left Side: Inspirational Text -->
+      <div class="split-left">
+        <div class="quote-content">
+          <h1>Every Mission<br>Starts With A<br>Connection.</h1>
+          <p>Reach out and waiting for signals.</p>
+          <span class="dot">•</span>
+        </div>
+      </div>
+
+      <!-- Right Side: Contact Form -->
+      <div class="split-right">
+        <div class="form-wrapper">
+          <p class="contact-subtitle">We would love to hear from you!</p>
+
+          <form id="contactForm" class="contact-form" name="contact" method="post" data-netlify="true"
+            netlify-honeypot="bot-field" action="/contact-us/thankyou.html">
+            <input type="hidden" name="form-name" value="contact" />
+
+            <label>Full Name</label>
+            <input type="text" name="name" placeholder="Enter your name" required />
+
+            <label>Email Address</label>
+            <input type="email" name="email" placeholder="Enter your email" required />
+
+            <label>Message</label>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+
+            <button type="submit" class="send-btn"> Send Message <span class="arrow">→ </span></button>
+          </form>
+
+          <div class="contact-details">
+            <p>Phone: +91 88611 83457</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="footer-content">
+        <span>© 2025 STES Rocketry</span>
+        <a href="https://www.instagram.com/stesrocketry/" target="_blank">
+          <img src="../imgs/insta.png" alt="Instagram" class="social-icon" style="height: 18px; width: 18px" />
+        </a>
+        <a href="https://www.youtube.com/@stesrocketryteam9672" target="_blank">
+          <img src="../imgs/youtube.png" alt="YouTube" class="social-icon" style="height: 18px; width: 18px" />
+        </a>
+        <a href="https://www.linkedin.com/company/stesrocketry/posts/?feedView=all" target="_blank">
+          <img src="../imgs/linkedin.png" alt="LinkedIn" class="social-icon" style="height: 18px; width: 18px" />
+        </a>
+      </div>
+    </footer>
+  </div>
+  <canvas id="stars"></canvas>
+  <script src="/contact-us/stars.js"></script>
+  <script src="../sidebar.js"></script>
+</body>
+
+</html>

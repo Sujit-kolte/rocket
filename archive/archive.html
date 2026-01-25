@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="../imgs/oldblacklogo.png" />
+  <title>Archive | STES Rocketry</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="archive.css" />
+  <link rel="stylesheet" href="../page-transition.css" />
+  <script src="../page-transition.js"></script>
+  <script src="../sidebar.js"></script>
+  <script src="archive.js"></script>
+</head>
+
+<body>
+  <div class="page">
+    <nav class="navbar">
+      <div class="logo"><img src="../imgs/logo.png" alt="" /></div>
+      <div class="nav-center nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../projects/projects.html">Projects</a>
+        <a href="../sponsors/sponsors.html">Sponsors</a>
+        <a href="../members/members.html">Members</a>
+        <a href="../archive/archive.html" id="archive">Archive</a>
+        <a href="../contact-us/contacus.html">Contact Us</a>
+      </div>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </nav>
+    <div class="side-menu">
+      <a href="../index.html">Home</a>
+      <a href="../projects/projects.html">Projects</a>
+      <a href="../sponsors/sponsors.html">Sponsors</a>
+      <a href="../members/members.html">Members</a>
+      <a href="../archive/archive.html" id="archive">Archive</a>
+      <a href="../contact-us/contacus.html">Contact Us</a>
+    </div>
+    <div class="overlay"></div>
+    <section class="archive-section">
+      <div class="journey-header">
+        <p class="archive-subtitle">The trajectory of STES Rocketry</p>
+      </div>
+
+      <div class="flight-path-container">
+        <!-- The central line/path -->
+        <div class="flight-path-line"></div>
+
+        <!-- 2017 -->
+        <div class="mission-node left animate-in">
+          <div class="mission-marker"></div>
+          <div class="mission-content">
+            <div class="mission-year">2017</div>
+            <div class="mission-card">
+              <img src="../imgs/archive/apj.png" alt="Team Formation" class="mission-img" />
+              <h2>IGNITION</h2>
+              <p>
+                STES Rocketry was founded by a group of passionate engineering
+                students. The dream: to build rockets and represent India on the global stage.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2018 -->
+        <div class="mission-node right animate-in">
+          <div class="mission-marker"></div>
+          <div class="mission-content">
+            <div class="mission-year">2018</div>
+            <div class="mission-card">
+              <img src="../imgs/archive/apj.png" alt="First Rocket" class="mission-img" />
+              <h2>LIFTOFF: APJ</h2>
+              <p>
+                Our first rocket, APJ, achieved an apogee of 10,000 feet at Spaceport America Cup 2018,
+                securing 89th place globally. A humble beginning to a soaring journey.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2019 -->
+        <div class="mission-node left animate-in">
+          <div class="mission-marker"></div>
+          <div class="mission-content">
+            <div class="mission-year">2019</div>
+            <div class="mission-card">
+              <img src="../imgs/archive/apj.png" alt="APJ II" class="mission-img" />
+              <h2>APJ II: ASCENT</h2>
+              <p>
+                With superior telemetry and GPS, APJ II achieved 99% flight accuracy.
+                We secured 29th place globally and 1st in the Asia-Pacific region at Spaceport America Cup 2019.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2021 -->
+        <div class="mission-node right animate-in">
+          <div class="mission-marker"></div>
+          <div class="mission-content">
+            <div class="mission-year">2021</div>
+            <div class="mission-card">
+              <img src="../imgs/archive/apj.png" alt="Perfect Game" class="mission-img" />
+              <h2>PERFECT GAME</h2>
+              <p>
+                LASC Brazil. Competing in the 0.5 km category, we secured 2nd place in India and 6th overall.
+                Precision engineering at its finest.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2022 -->
+        <div class="mission-node left animate-in">
+          <div class="mission-marker"></div>
+          <div class="mission-content">
+            <div class="mission-year">2022</div>
+            <div class="mission-card">
+              <img src="../imgs/archive/apj.png" alt="Midnight Sun" class="mission-img" />
+              <h2>MIDNIGHT SUN</h2>
+              <p>
+                Our SRAD debut. Developed entirely in-house with a custom solid motor.
+                Secured 3rd in category and 8th worldwide. The fire burns brighter.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer-content">
+        <span>© 2025 STES Rocketry</span>
+        <a href="https://www.instagram.com/stesrocketry/" target="_blank">
+          <img src="../imgs/insta.png" alt="Instagram" class="social-icon" style="height: 18px; width: 18px" />
+        </a>
+        <a href="https://www.youtube.com/@stesrocketryteam9672" target="_blank">
+          <img src="../imgs/youtube.png" alt="YouTube" class="social-icon" style="height: 18px; width: 18px" />
+        </a>
+        <a href="https://www.linkedin.com/company/stesrocketry/posts/?feedView=all" target="_blank">
+          <img src="../imgs/linkedin.png" alt="LinkedIn" class="social-icon" style="height: 18px; width: 18px" />
+        </a>
+      </div>
+    </footer>
+  </div>
+  <script>
+    document.querySelectorAll(".memory-card").forEach((card) => {
+      card.addEventListener("click", () => {
+        const isActive = card.classList.contains("active");
+        document.body.classList.toggle("card-zoomed", !isActive);
+        card.classList.toggle("active");
+
+        const leftImg = card.querySelector(".pop-img.left");
+        const rightImg = card.querySelector(".pop-img.right");
+
+        if (!isActive) {
+          leftImg.classList.add("show");
+          rightImg.classList.add("show");
+          leftImg.classList.remove("hidden");
+          rightImg.classList.remove("hidden");
+        } else {
+          leftImg.classList.remove("show");
+          rightImg.classList.remove("show");
+          setTimeout(() => {
+            leftImg.classList.add("hidden");
+            rightImg.classList.add("hidden");
+          }, 1000);
+        }
+      });
+    });
+  </script>
+  <canvas id="stars"></canvas>
+  <script src="../stars.js"></script>
+</body>
+
+</html>

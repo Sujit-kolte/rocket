@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /vehicles/vehicles.html
+Disallow: /contact-us/contactus.html
+Disallow: /sponsors/sponsors.html
+Allow: /
+Sitemap: https://stesrocketry.in/sitemap.xml
