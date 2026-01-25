@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3NZWMYC10"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+
+        gtag("config", "G-K3NZWMYC10");
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/imgs/oldblacklogo.png" />
+    <title>STES Rocketry</title>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://stesrocketry.in/#organization",
+        "name": "STES Rocketry",
+        "url": "https://stesrocketry.in",
+        "logo": "https://stesrocketry.in/imgs/oldblacklogo.png"
+      }
+    </script>
+
+    <link rel="canonical" href="https://stesrocketry.in/" />
+    <meta name="description"
+        content="STES Rocketry - Advancing Aerospace Innovation through Engineering Precision and Passion for Space." />
+    <meta name="keywords"
+        content="STES Rocketry, Rocketry Club, Sinhgad Rocketry, Aerospace Engineering, Rocket Launch, Pune Rocketry" />
+    <meta name="author" content="STES Rocketry Team" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph Meta -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="STES Rocketry | Advancing Aerospace Innovation" />
+    <meta property="og:description"
+        content="Official website of STES Rocketry Club. Discover our projects, sponsors, and events." />
+    <meta property="og:image" content="https://stesrocketry.in/imgs/logo.png" />
+    <meta property="og:url" content="https://stesrocketry.in" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:title" content="STES Rocketry" />
+    <meta name="twitter:description" content="Explore the future of aerospace with STES Rocketry." />
+    <meta name="twitter:image" content="https://stesrocketry.in/imgs/logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- CSS & JS -->
+    <link rel="stylesheet" href="page-transition.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="page-transition.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --bg: #0f172a;
+            /* Deep dark blue/black */
+            --panel-bg: #1e293b;
+            /* Slightly lighter for cards/panels */
+            --text-main: #f8fafc;
+            /* Off-white for readability */
+            --text-muted: #94a3b8;
+            /* Gray for labels/placeholders */
+            --border: #334155;
+            /* Subtle border for separation */
+            --input-bg: #0f172a;
+            /* Darker input background */
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            color: var(--text-main);
+            padding: 2rem;
+            line-height: 1.5;
+        }
+
+        .admin-panel {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--panel-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--input-bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            box-sizing: border-box;
+            color: var(--text-main);
+            transition: border-color 0.2s;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+            transition: transform 0.1s, opacity 0.2s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <meta name="google-site-verification" content="GiZnupOThysbiCUNPD-vsPO0vEPLar9EEAQ4jEy4d24" />
+
+    <div class="page">
+        <!-- Navbar (Preserved Pill Design) -->
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../imgs/logo.png" alt="" />
+            </div>
+            <div class="nav-center nav-links">
+                <a href="../index.html" id="Home">Home</a>
+                <a href="../projects/projects.html">Projects</a>
+                <a href="../sponsors/sponsors.html">Sponsors</a>
+                <a href="../members/members.html">Members</a>
+                <!-- <a href="./archive/archive.html">Archive</a>-->
+                <a href="../contact-us/contacus.html">Contact Us</a>
+            </div>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+        </nav>
+
+        <div class="side-menu">
+            <a href="../index.html" id="Home">Home</a>
+            <a href="../projects/projects.html">Projects</a>
+            <a href="../sponsors/sponsors.html">Sponsors</a>
+            <a href="../members/members.html" id="members">Members</a>
+            <!-- <a href="./archive/archive.html">Archive</a>-->
+            <a href="../contact-us/contacus.html">Contact Us</a>
+        </div>
+
+        <div class="overlay"></div>
+
+        <!-- MAIN DESIGN CONTAINER -->
+        <!-- MAIN DESIGN CONTAINER -->
+        <main class="modern-layout">
+            <div class="admin-panel">
+                <div id="login-section">
+                    <h2>Admin Login</h2>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="admin-email" placeholder="admin@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="admin-password">
+                    </div>
+                    <button id="login-btn">Login to Dashboard</button>
+                </div>
+
+                <div id="upload-section" class="hidden">
+                    <h2>Upload New Rocket Project</h2>
+                    <div class="form-group">
+                        <label>Main Image URL</label>
+                        <input type="text" id="rocket-img" placeholder="../imgs/rocket.png">
+                    </div>
+                    <div class="form-group">
+                        <label>Insignia/Icon URL</label>
+                        <input type="text" id="rocket-icon" placeholder="../imgs/icon.png">
+                    </div>
+                    <div class="form-group">
+                        <label>Rocket Title</label>
+                        <input type="text" id="rocket-title">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea id="rocket-desc" rows="4"></textarea>
+                    </div>
+                    <button id="upload-btn">Upload to Firestore</button>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <span>© 2025 STES Rocketry</span>
+                <a href="https://www.instagram.com/stesrocketry/" target="_blank">
+                    <img src="./imgs/insta.png" alt="Instagram" class="social-icon" style="height: 18px; width: 18px" />
+                </a>
+                <a href="https://www.youtube.com/@stesrocketryteam9672" target="_blank">
+                    <img src="./imgs/youtube.png" alt="YouTube" class="social-icon" style="height: 18px; width: 18px" />
+                </a>
+                <a href="https://www.linkedin.com/company/stesrocketry/posts/?feedView=all" target="_blank">
+                    <img src="imgs/linkedin.png" alt="LinkedIn" class="social-icon" style="height: 18px; width: 18px" />
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="sidebar.js"></script>
+    <canvas id="stars"></canvas>
+    <script src="stars.js"></script>
+    <script type="module" src="upload.js"></script>
+
+    <!-- GSAP Animations for New Layout -->
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Reveal
+        gsap.from(".hero-title", {
+            y: 50,
+            opacity: 0,
+            duration: 1.0,
+            ease: "power3.out",
+            delay: 0.2
+        });
+
+        // Marquee Scroll Effect
+        gsap.to(".inf-scroll-text", {
+            xPercent: -50,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".marquee-section",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1
+            }
+        });
+
+        // Giant Text Parallax
+        gsap.fromTo(".giant-text",
+            { x: -400, opacity: 0.8 },
+            {
+                x: 400,
+                opacity: 1,
+                scrollTrigger: {
+                    trigger: ".giant-text-section",
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true
+                }
+            }
+        );
+
+        // Feature Section Reveal
+        gsap.from(".feature-content", {
+            y: 30,
+            opacity: 0,
+            duration: 0.8,
+            scrollTrigger: {
+                trigger: ".feature-split",
+                start: "top 80%"
+            }
+        });
+
+    </script>
+</body>
+
+</html>
