@@ -1,17 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-// Parallax Effect
-window.addEventListener("scroll", function () {
-  const rockets = document.querySelectorAll(".rocket");
-
-  rockets.forEach((rocket) => {
-    const rocketPosition = rocket.getBoundingClientRect().top;
-
-    // Parallax Effect
-    const offset = rocketPosition * 0.3;
-    rocket.style.transform = `translateY(${offset}px)`;
-  });
-});
 
 // Adjust thruster flame size and intensity based on scroll position
 window.addEventListener("scroll", () => {
@@ -48,7 +36,7 @@ async function fetchAndRenderRockets(targetSelector) {
     const querySnapshot = await getDocs(collection(db, "projects"));
 
     // Clear container to prevent duplicates
-    // container.innerHTML = '';
+    container.innerHTML = '';
 
     querySnapshot.forEach((doc) => {
       const data = doc.data();
