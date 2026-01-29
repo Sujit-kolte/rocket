@@ -12,7 +12,6 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-// Initialize Firebase
 const db = getFirestore(app);
 
 // Fetch and Render Function
@@ -29,6 +28,9 @@ async function fetchAndRenderRockets(targetSelector) {
 
         querySnapshot.forEach((doc) => {
             const data = doc.data();
+
+            // Only process enabled contact info
+            if (data.enabled === false) return;
 
             // Set country to +91 if undefined
             if (data.country === undefined) {

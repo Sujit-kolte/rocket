@@ -31,7 +31,10 @@ async function fetchAndRenderRockets(targetSelector) {
 
         querySnapshot.forEach((doc) => {
             const data = doc.data();
-            
+
+            // Only process enabled members
+            if (data.enabled === false) return;
+
             // Set subsystem to empty string if undefined
             if (data.role === undefined) {
                 data.role = "";

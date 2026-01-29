@@ -5,7 +5,7 @@ import { getFirestore, collection, getDocs } from "https://www.gstatic.com/fireb
 window.addEventListener("scroll", () => {
   const flame = document.getElementById("thrusterFlame");
   const scrollY = window.scrollY;
-  const intensity = Math.min(scrollY / 150, 1); // Adjust for faster intensity
+  const intensity = Math.min(scrollY / 150, 1);
 
   flame.style.height = `${80 + intensity * 100}px`;
   flame.style.opacity = `${0.7 + intensity * 0.3}`;
@@ -23,7 +23,6 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-// Initialize Firebase
 const db = getFirestore(app);
 
 // Fetch and Render Function
@@ -40,6 +39,9 @@ async function fetchAndRenderRockets(targetSelector) {
 
     querySnapshot.forEach((doc) => {
       const data = doc.data();
+
+      // Only process enabled projects
+      if (data.enabled === false) return;
 
       const rocketHTML = `
         <div class="rocket">

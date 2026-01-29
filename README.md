@@ -29,8 +29,8 @@ You can serve the site locally with Python's simple HTTP server from the project
 ```bash
 cd /Users/tanmaykadam/Desktop/dex/CS/Rocketry/Website/2.1
 # Python 3
-python3 -m http.server 8000
-# Then open http://localhost:8000 in your browser
+npx vite
+# Then open http://localhost:5173/ in your browser OR Click on generated URL
 ```
 
 ## Deploy (GitHub)
