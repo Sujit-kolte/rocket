@@ -62,7 +62,14 @@ const domainFields = {
     contact: [
         { name: 'subheading', label: 'Subheading Text', type: 'text' },
         { name: 'phone', label: 'Phone Number', type: 'text' },
-        { name: 'country', label: 'Country Code', type: 'text' }
+        { name: 'country', label: 'Country Code', type: 'text' },
+        { name: 'who', label: 'Who to Contact', type: 'text' }
+    ],
+    archive: [
+        { name: 'image', label: 'Image URL', type: 'text' },
+        { name: 'year', label: 'Year', type: 'text' },
+        { name: 'title', label: 'Title', type: 'text' },
+        { name: 'description', label: 'Description', type: 'textarea' }
     ]
 };
 
@@ -178,14 +185,16 @@ function createCard(id, data, isEnabled) {
     // Card content based on domain
     if (currentDomain === 'projects') {
         cardContent += `
+            <div class="card-images">
             <img src="${data.mainSrc || ''}" class="card-image" alt="${data.title || ''}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23334155\' width=\'200\' height=\'200\'/%3E%3C/svg%3E'">
             <img src="${data.iconSrc || ''}" class="card-image" alt="${data.title || ''}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23334155\' width=\'200\' height=\'200\'/%3E%3C/svg%3E'">
+            </div>
             <div class="card-title">${data.title || 'Untitled'}</div>
             <div class="card-description">${data.description || ''}</div>
         `;
     } else if (currentDomain === 'members') {
         cardContent += `
-            <img src="${data.image || ''}" class="card-image" alt="${data.name || ''}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23334155\' width=\'200\' height=\'200\'/%3E%3C/svg%3E'">
+            <img src="${data.image || ''}" class="card-image" alt="${data.name || ''}" onerror="this.src=''">
             <div class="card-title">${data.name || 'Unnamed'}</div>
             <div class="card-subtitle">${data.category || ''}</div>
             <div class="card-subtitle">${data.role || ''}</div>
@@ -200,7 +209,15 @@ function createCard(id, data, isEnabled) {
         cardContent += `
             <div class="card-title">Contact Information</div>
             <div class="card-description">Subheading: ${data.subheading || ''}</div>
+            <div class="card-description">Who to Contact: ${data.who || ''}</div>
             <div class="card-description">Phone: ${data.country || '+91'} ${data.phone || ''}</div>
+        `;
+    } else if (currentDomain === 'archive') {
+        cardContent += `
+            <div class="card-title">${data.title || 'Unnamed'}</div>
+            <div class="card-description">${data.description || ''}</div>
+            <div class="card-subtitle">Year: ${data.year || ''}</div>
+            <img src="${data.image || ''}" class="card-image" alt="${data.title || ''}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect fill=\'%23334155\' width=\'200\' height=\'200\'/%3E%3C/svg%3E'">
         `;
     }
 
@@ -322,9 +339,16 @@ itemForm.addEventListener('submit', async (e) => {
     if (currentDomain === 'contact' && !data.country) {
         data.country = '+91';
     }
+    if (currentDomain === 'who' && !data.who) {
+        data.who = 'Team Lead';
+    }
     if (currentDomain === 'sponsors' && !data.link) {
         data.link = '#';
     }
+    if (currentDomain === 'archive' && !data.year) {
+        data.year = '';
+    }
+
 
     try {
         if (currentEditId) {
