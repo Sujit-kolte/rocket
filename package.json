@@ -10,6 +10,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "start": "node main.js",
     "preview": "vite preview",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
