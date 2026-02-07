@@ -1,9 +1,9 @@
 /* Initial hidden state */
-/* .page {
+.page {
     opacity: 0;
     filter: blur(10px);
     transition: opacity 0.6s ease-out, filter 0.6s ease-out;
-  } */
+  }
   
   /* When the page loads */
   .page.show {

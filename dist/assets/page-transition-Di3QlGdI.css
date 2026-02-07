@@ -1,0 +1,1 @@
+.page{opacity:0;filter:blur(10px);transition:opacity .6s ease-out,filter .6s ease-out}.page.show{opacity:1;filter:blur(0px)}
