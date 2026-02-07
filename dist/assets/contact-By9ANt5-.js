@@ -1,4 +1,4 @@
-import"./modulepreload-polyfill-B5Qt9EMX.js";/* empty css              *//* empty css                        */import{initializeApp as s}from"https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";import{getFirestore as c,getDocs as i,collection as l}from"https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";const d={apiKey:"AIzaSyAG5FBYdCAu5-O44w4XdKbDE-w6hdkq6Zs",authDomain:"stestest-5c37b.firebaseapp.com",projectId:"stestest-5c37b",storageBucket:"stestest-5c37b.firebasestorage.app",messagingSenderId:"411889626084",appId:"1:411889626084:web:f6ed382e7b52d13265f5f1",measurementId:"G-V6RZLD7G1X"},p=s(d),m=c(p);async function u(o){const t=document.querySelector(o);if(t)try{const a=await i(l(m,"contact"));t.innerHTML="",a.forEach(r=>{const e=r.data();if(e.enabled===!1)return;e.country===void 0&&(e.country="+91");const n=`
+import"./modulepreload-polyfill-B5Qt9EMX.js";import{initializeApp as s}from"https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";import{getFirestore as c,getDocs as i,collection as l}from"https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";const d={apiKey:"AIzaSyAG5FBYdCAu5-O44w4XdKbDE-w6hdkq6Zs",authDomain:"stestest-5c37b.firebaseapp.com",projectId:"stestest-5c37b",storageBucket:"stestest-5c37b.firebasestorage.app",messagingSenderId:"411889626084",appId:"1:411889626084:web:f6ed382e7b52d13265f5f1",measurementId:"G-V6RZLD7G1X"},p=s(d),m=c(p);async function u(o){const t=document.querySelector(o);if(t)try{const a=await i(l(m,"contact"));t.innerHTML="",a.forEach(n=>{const e=n.data();if(e.enabled===!1)return;e.country===void 0&&(e.country="+91");const r=`
         <div class="form-wrapper">
           <p class="contact-subtitle">${e.subheading}</p>
 
@@ -22,4 +22,4 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";/* empty css              *//* empt
             <p>${e.who}'s Phone: ${e.country} ${e.phone}</p>
           </div>
         </div>
-      `;t.insertAdjacentHTML("beforeend",n)})}catch(a){console.error("Error fetching rockets:",a)}}u(".split-right");
+      `;t.insertAdjacentHTML("beforeend",r)})}catch(a){console.error("Error fetching rockets:",a)}}u(".split-right");
