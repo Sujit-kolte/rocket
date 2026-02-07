@@ -1,90 +1,90 @@
 const canvas = document.getElementById("stars");
 const ctx = canvas.getContext("2d");
 
-function setupStars() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+let stars = []; // Array to store star data
+const numStars = 800; // Number of stars
+let width, height, cx, cy;
 
-  const density = 0.12;
-  const starCount = Math.floor(canvas.width * density);
-
-  const stars = Array.from({ length: starCount }, () => ({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    z: Math.random() * canvas.width,
-    radius: Math.random() * 0.8 + 0.2,
-  }));
-
-  return stars;
+// Initialize canvas size and center point
+function resizeCanvas() {
+  width = window.innerWidth;
+  height = window.innerHeight;
+  canvas.width = width;
+  canvas.height = height;
+  cx = width / 2;
+  cy = height / 2;
 }
 
-let stars = setupStars();
-
-function resetStar(star) {
-  star.x = Math.random() * canvas.width;
-  star.y = Math.random() * canvas.height;
-  star.z = canvas.width;
-  star.radius = Math.random() * 0.8 + 0.2;
+// Create a single star object
+function createStar() {
+  return {
+    x: Math.random() * width - cx, // Random position relative to center
+    y: Math.random() * height - cy,
+    z: Math.random() * width, // Random depth
+    o: "0." + Math.floor(Math.random() * 99) + 1, // Random opacity
+  };
 }
 
-function drawStars() {
-  // 1. Clear Canvas (Transparent) to reveal CSS background
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+// Initialize all stars
+function initStars() {
+  stars = [];
+  for (let i = 0; i < numStars; i++) {
+    stars.push(createStar());
+  }
+}
 
-  /* 
-     NOTE: The background gradient is applied via CSS properties below 
-     to ensure it persists on all pages:
-     canvas.style.background = ...
-  */
-
-  const cx = canvas.width / 2;
-  const cy = canvas.height / 2;
-
+// Update star position (Move it closer)
+function moveStars() {
   stars.forEach((star) => {
-    const dx = star.x - cx;
-    const dy = star.y - cy;
-    const perspective = canvas.width / (canvas.width + star.z);
-    const x = cx + dx * perspective;
-    const y = cy + dy * perspective;
-    const radius = star.radius * perspective * 2;
+    star.z -= 2; // Speed of stars coming towards screen
 
-    ctx.beginPath();
-    ctx.arc(x, y, radius, 0, Math.PI * 2);
-    ctx.fillStyle = "white";
-    ctx.shadowBlur = 6;
-    ctx.shadowColor = "white";
-    ctx.fill();
-  });
-}
-
-function updateStars() {
-  const cx = canvas.width / 2;
-  const cy = canvas.height / 2;
-
-  stars.forEach((star) => {
-    const dx = star.x - cx;
-    const dy = star.y - cy;
-    const dist = Math.sqrt(dx * dx + dy * dy);
-
-    const speed = 5 + dist / 480;
-    star.z -= speed;
-
-    if (star.z <= 1) {
-      resetStar(star);
+    // If star passes the screen (z <= 0), reset it to the back
+    if (star.z <= 0) {
+      star.z = width;
+      star.x = Math.random() * width - cx;
+      star.y = Math.random() * height - cy;
     }
   });
 }
 
-function resizeCanvas() {
-  stars = setupStars();
+// Draw stars on canvas
+function drawStars() {
+  // Clear canvas for next frame (Transparent background)
+  ctx.clearRect(0, 0, width, height);
+
+  stars.forEach((star) => {
+    // 3D Projection Math: Calculate 2D x,y based on 3D z depth
+    const k = 128.0 / star.z;
+    const px = star.x * k + cx;
+    const py = star.y * k + cy;
+
+    // Only draw if within screen bounds
+    if (px >= 0 && px <= width && py >= 0 && py <= height) {
+      const size = (1 - star.z / width) * 2.5; // Stars get bigger as they get closer
+      const shade = parseInt((1 - star.z / width) * 255); // Stars get brighter as they get closer
+
+      ctx.fillStyle = `rgb(${shade},${shade},${shade})`;
+      ctx.beginPath();
+      ctx.arc(px, py, size, 0, Math.PI * 2); // Draw circle
+      ctx.fill();
+    }
+  });
 }
 
-window.addEventListener("resize", resizeCanvas);
-
+// Animation Loop
 function animate() {
+  moveStars();
   drawStars();
-  updateStars();
   requestAnimationFrame(animate);
 }
 
+// Handle Window Resize
+window.addEventListener("resize", () => {
+  resizeCanvas();
+  initStars(); // Re-initialize stars to fill new size
+});
+
+// Start everything
+resizeCanvas();
+initStars();
 animate();

@@ -1,17 +1,12 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-// Adjust thruster flame size and intensity based on scroll position
-window.addEventListener("scroll", () => {
-  const flame = document.getElementById("thrusterFlame");
-  const scrollY = window.scrollY;
-  const intensity = Math.min(scrollY / 150, 1);
-
-  flame.style.height = `${80 + intensity * 100}px`;
-  flame.style.opacity = `${0.7 + intensity * 0.3}`;
-  flame.style.filter = `blur(${2 + intensity * 4}px)`;
-});
-
+// FIX 2: Ensure your .env file exists in the root!
+// If you are testing, you can temporarily paste the strings here.
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
@@ -19,7 +14,7 @@ const firebaseConfig = {
   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
-  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
 const app = initializeApp(firebaseConfig);
@@ -35,7 +30,7 @@ async function fetchAndRenderRockets(targetSelector) {
     const querySnapshot = await getDocs(collection(db, "projects"));
 
     // Clear container to prevent duplicates
-    container.innerHTML = '';
+    container.innerHTML = "";
 
     querySnapshot.forEach((doc) => {
       const data = doc.data();
@@ -43,6 +38,7 @@ async function fetchAndRenderRockets(targetSelector) {
       // Only process enabled projects
       if (data.enabled === false) return;
 
+      // FIX 3: Added the 'thruster-flame' div inside the HTML so CSS can style it
       const rocketHTML = `
         <div class="rocket">
           <div class="rocket-container">
@@ -51,18 +47,20 @@ async function fetchAndRenderRockets(targetSelector) {
               alt="${data.title}"
               class="rocket-image"
             />
-          </div>
+            <div class="thruster-flame"></div> </div>
+          
           <div class="rocket-info slide-in">
             <div class="image-container">
               <img
                 src="${data.iconSrc}"
-                alt="${data.title}"
-                class="rocket-insignia insignia-sahasra"
+                alt="${data.title} insignia"
+                class="rocket-insignia"
               />
             </div>
             <br />
             <h2 class="rocket-title">${data.title}</h2>
             <br />
+            <div class="rocket-separator"></div>
             <br />
             <p class="rocket-desc">${data.description}</p>
             <br />
@@ -71,11 +69,11 @@ async function fetchAndRenderRockets(targetSelector) {
         </div>
       `;
 
-      container.insertAdjacentHTML('beforeend', rocketHTML);
+      container.insertAdjacentHTML("beforeend", rocketHTML);
     });
   } catch (error) {
     console.error("Error fetching rockets:", error);
   }
 }
 
-fetchAndRenderRockets('.projects-section');
+fetchAndRenderRockets(".projects-section");

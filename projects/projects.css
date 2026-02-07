@@ -5,8 +5,9 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, sans-serif;
   overflow-x: hidden;
   background: black;
   color: white;
@@ -45,7 +46,6 @@ body {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
-
 .logo {
   display: flex;
   align-items: center;
@@ -71,7 +71,6 @@ body {
   gap: 30px;
   display: flex;
 }
-
 
 .nav-links a {
   color: white;
@@ -194,8 +193,9 @@ body {
   /* Prevents interaction when hidden */
   opacity: 0;
   transform: translateX(-100%);
-  transition: transform 0.3s ease, opacity 0.3s ease;
-
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
 .side-menu a:hover {
@@ -230,7 +230,6 @@ body {
   transition-delay: 0.5s;
 }
 
-
 .overlay {
   position: fixed;
   top: 0;
@@ -250,7 +249,6 @@ body {
   visibility: visible;
 }
 
-
 /* Hamburger animation */
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
@@ -263,7 +261,6 @@ body {
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg) translate(7px, -7px);
 }
-
 
 .projects-section {
   padding: 6% 7%;
@@ -355,7 +352,7 @@ body {
 /* Individual Insignia Positioning - ADJUST THESE MANUALLY */
 .insignia-apj {
   top: 1rem;
-  left: -.6rem;
+  left: -0.6rem;
 }
 
 .insignia-apj2 {
@@ -375,7 +372,7 @@ body {
 }
 
 .insignia-loadsave {
-  top: -.5rem;
+  top: -0.5rem;
   left: 1.5rem;
 }
 
@@ -416,7 +413,6 @@ body {
   align-items: center;
   justify-content: center;
 }
-
 
 /* Typography */
 .rocket-title {
@@ -583,7 +579,6 @@ body {
   left: 99%;
 }
 
-
 #thrusterFlame3 {
   left: 97.3%;
 }
@@ -605,7 +600,11 @@ body {
 }
 
 #stars {
-  background: radial-gradient(circle at 70% 50%, rgba(20, 20, 50, 0.4) 0%, rgba(0, 0, 0, 0) 60%);
+  background: radial-gradient(
+    circle at 70% 50%,
+    rgba(20, 20, 50, 0.4) 0%,
+    rgba(0, 0, 0, 0) 60%
+  );
   position: fixed;
   top: 0;
   left: 0;
@@ -722,7 +721,6 @@ body {
     padding: 5px 0;
   }
 
-
   .logo {
     float: left;
     margin-top: 6px;
@@ -808,11 +806,9 @@ body {
   .thruster-flame::after {
     display: none;
   }
-
 }
 
-@media(max-width:750px) {
-
+@media (max-width: 750px) {
   .nav-links a {
     display: none;
   }
@@ -825,7 +821,6 @@ body {
     font-size: 1.1rem;
     text-align: center;
   }
-
 
   .thruster-flame,
   .rocket-image,
@@ -848,14 +843,11 @@ body {
   .sahasrainsig {
     position: relative;
     left: 0.3rem;
-
   }
 
   .vikrantinsig {
-
     position: relative;
-    left: .3rem;
-
+    left: 0.3rem;
   }
 
   #firstrocket {
@@ -919,7 +911,7 @@ body {
   }
 
   .rocket-desc {
-    font-size: 1.0rem;
+    font-size: 1rem;
     text-align: center;
     margin: 0 auto;
   }

@@ -1,37 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-K3NZWMYC10"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-<head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3NZWMYC10"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
+      gtag("config", "G-K3NZWMYC10");
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="../imgs/oldblacklogo.png" />
+    <title>Members</title>
+    <link rel="stylesheet" href="members.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../page-transition.css" />
+    <script src="../page-transition.js"></script>
+    <link rel="canonical" href="https://stesrocketry.in/" />
+    <meta name="robots" content="noindex, nofollow" />
+  </head>
 
-    gtag("config", "G-K3NZWMYC10");
-  </script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/x-icon" href="../imgs/oldblacklogo.png" />
-  <title>Members</title>
-  <link rel="stylesheet" href="members.css" />
-  <link rel="stylesheet" href="../style.css" />
-  <link rel="stylesheet" href="../page-transition.css" />
-  <script src="../page-transition.js"></script>
-  <link rel="canonical" href="https://stesrocketry.in/" />
-  <meta name="robots" content="noindex, nofollow" />
-</head>
+  <body>
+    <div class="page">
+      <nav class="navbar">
+        <div class="logo">
+          <img src="../imgs/oldlogo.png" alt="" />
+        </div>
+        <div class="nav-center nav-links">
+          <a href="../index.html">Home</a>
+          <a href="../projects/projects.html">Projects</a>
+          <a href="../sponsors/sponsors.html">Sponsors</a>
+          <a href="../members/members.html" id="members">Members</a>
+          <!-- <a href="../archive/archive.html">Archive</a>-->
+          <a href="../contact-us/contacus.html">Contact Us</a>
+        </div>
+        <div class="hamburger"><span></span><span></span><span></span></div>
+      </nav>
 
-<body>
-  <div class="page">
-    <nav class="navbar">
-      <div class="logo">
-        <img src="../imgs/oldlogo.png" alt="" />
-      </div>
-      <div class="nav-center nav-links">
+      <div class="side-menu">
         <a href="../index.html">Home</a>
         <a href="../projects/projects.html">Projects</a>
         <a href="../sponsors/sponsors.html">Sponsors</a>
@@ -39,49 +51,52 @@
         <!-- <a href="../archive/archive.html">Archive</a>-->
         <a href="../contact-us/contacus.html">Contact Us</a>
       </div>
-      <div class="hamburger"><span></span><span></span><span></span></div>
-    </nav>
 
-    <div class="side-menu">
-      <a href="../index.html">Home</a>
-      <a href="../projects/projects.html">Projects</a>
-      <a href="../sponsors/sponsors.html">Sponsors</a>
-      <a href="../members/members.html" id="members">Members</a>
-      <!-- <a href="../archive/archive.html">Archive</a>-->
-      <a href="../contact-us/contacus.html">Contact Us</a>
+      <div class="overlay"></div>
+
+      <section class="members-section"></section>
+      <footer class="footer">
+        <div class="footer-content">
+          <span>© 2025 STES Rocketry</span>
+          <a href="https://www.instagram.com/stesrocketry/" target="_blank">
+            <img
+              src="../imgs/insta.png"
+              alt="Instagram"
+              class="social-icon"
+              style="height: 18px; width: 18px" />
+          </a>
+          <a
+            href="https://www.youtube.com/@stesrocketryteam9672"
+            target="_blank">
+            <img
+              src="../imgs/youtube.png"
+              alt="YouTube"
+              class="social-icon"
+              style="height: 18px; width: 18px" />
+          </a>
+          <a
+            href="https://www.linkedin.com/company/stesrocketry/posts/?feedView=all"
+            target="_blank">
+            <img
+              src="../imgs/linkedin.png"
+              alt="LinkedIn"
+              class="social-icon"
+              style="height: 18px; width: 18px" />
+          </a>
+        </div>
+      </footer>
     </div>
 
-    <div class="overlay"></div>
-
-    <section class="members-section">
-    </section>
-    <footer class="footer">
-      <div class="footer-content">
-        <span>© 2025 STES Rocketry</span>
-        <a href="https://www.instagram.com/stesrocketry/" target="_blank">
-          <img src="../imgs/insta.png" alt="Instagram" class="social-icon" style="height: 18px; width: 18px" />
-        </a>
-        <a href="https://www.youtube.com/@stesrocketryteam9672" target="_blank">
-          <img src="../imgs/youtube.png" alt="YouTube" class="social-icon" style="height: 18px; width: 18px" />
-        </a>
-        <a href="https://www.linkedin.com/company/stesrocketry/posts/?feedView=all" target="_blank">
-          <img src="../imgs/linkedin.png" alt="LinkedIn" class="social-icon" style="height: 18px; width: 18px" />
-        </a>
-      </div>
-    </footer>
-  </div>
-
-  <script>
-    function toggleMenu() {
-      document.querySelector(".nav-links").classList.toggle("active");
-    }
-  </script>
-  <script type="module" src="../members/members.js"></script>
-  <script src="../sidebar.js"></script>
-  <canvas id="stars"></canvas>
-  <script src="../page-transition.js"></script>
-  <script src="../main.js"></script>
-  <script src="../stars.js"></script>
-</body>
-
+    <script>
+      function toggleMenu() {
+        document.querySelector(".nav-links").classList.toggle("active");
+      }
+    </script>
+    <script type="module" src="../members/members.js"></script>
+    <script src="../sidebar.js"></script>
+    <canvas id="stars"></canvas>
+    <script src="../page-transition.js"></script>
+    <script src="../main.js"></script>
+    <script src="../stars.js"></script>
+  </body>
 </html>

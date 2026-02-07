@@ -5,10 +5,12 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, sans-serif;
   overflow-x: hidden;
-  background: black;
+  /* Make body transparent so we see the black stars canvas behind it */
+  background: transparent;
   color: white;
 }
 
@@ -27,22 +29,26 @@ body {
   overflow-x: hidden;
 }
 
+/* --- NAVBAR FIX --- */
 .navbar {
   position: fixed;
-  top: -6.3rem;
+  top: 20px; /* Moves it down slightly for the floating look */
   left: 50%;
-  transform: translateX(-50%);
-  width: max-content;
+  transform: translateX(-50%); /* Centers it horizontally */
+  width: max-content; /* Only as wide as content */
   max-width: 95vw;
   padding: 10px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 1002;
-  background: #000;
+
+  /* Pill Styling */
+  background: rgba(0, 0, 0, 0.8);
   border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
   overflow: visible !important;
 }
 
@@ -157,7 +163,9 @@ body {
   opacity: 0;
   pointer-events: none;
   transform: translateX(-100%);
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
 .side-menu a:hover {
@@ -173,19 +181,15 @@ body {
 .side-menu a:nth-child(1) {
   transition-delay: 0.1s;
 }
-
 .side-menu a:nth-child(2) {
   transition-delay: 0.2s;
 }
-
 .side-menu a:nth-child(3) {
   transition-delay: 0.3s;
 }
-
 .side-menu a:nth-child(4) {
   transition-delay: 0.4s;
 }
-
 .side-menu a:nth-child(5) {
   transition-delay: 0.5s;
 }
@@ -208,25 +212,16 @@ body {
   visibility: visible;
 }
 
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px);
-}
-
+/* --- SECTION PADDING FIX --- */
 .members-section {
-  margin-top: 120px;
+  padding-top: 180px; /* Pushes content down so it's not hidden behind navbar */
+  margin-top: 0;
   text-align: center;
+  min-height: 80vh;
 }
 
 .members-section h2 {
-  margin-top: 5rem;
+  margin-top: 0;
   font-size: 32px;
   margin-bottom: 2px;
 }
@@ -278,7 +273,6 @@ body {
 }
 
 /* Sliding blur semicircle */
-/* Sliding blur semicircle */
 .blur-overlay {
   position: absolute;
   bottom: 0;
@@ -288,11 +282,9 @@ body {
   backdrop-filter: blur(8px);
   background: rgba(0, 0, 0, 0.2);
   clip-path: inset(50% 0 0 0);
-  /* bottom half */
   transform: translateY(100%);
   transition: transform 0.3s ease;
   z-index: 1;
-  /* Make sure it's under the icons */
 }
 
 /* Icons inside the blur */
@@ -303,7 +295,6 @@ body {
   display: flex;
   justify-content: center;
   gap: 10px;
-  /* Start fully hidden and below */
   transform: translateY(100%);
   opacity: 0;
   transition: transform 0.5s ease opacity 10s ease;
@@ -346,12 +337,10 @@ body {
     margin-top: 6px;
     padding: 0;
     align-items: center;
-    /* Force height */
     width: auto;
     position: relative;
     z-index: 1009;
     display: flex;
-    /* Ensure flex */
   }
 
   .logo img {
@@ -361,16 +350,12 @@ body {
     visibility: visible;
     opacity: 1;
     position: relative;
-    /* Ensure it's not hidden */
     z-index: 1003;
   }
 
-  /* --- FIX START --- */
   .side-menu {
     top: 0;
-    /* 1. Unmask the container so items don't vanish when moved up */
     overflow: visible !important;
-    /* 2. Remove the big top cushion */
     padding-top: 0;
   }
 
@@ -380,14 +365,11 @@ body {
     color: white;
   }
 
-  /* 3. Pull ONLY the first link up by 20px */
   .side-menu a:first-child {
     padding-top: 0;
     margin-top: -20px;
     display: block;
   }
-
-  /* --- FIX END --- */
 
   .overlay {
     position: fixed;
@@ -405,18 +387,6 @@ body {
   .overlay.active {
     opacity: 1;
     visibility: visible;
-  }
-
-  .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-
-  .hamburger.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
   }
 }
 
@@ -453,7 +423,6 @@ body {
 }
 
 @media (max-width: 600px) {
-
   .nav-links a {
     display: none;
   }
@@ -466,16 +435,7 @@ body {
     margin-top: 10px;
   }
 
-  .logo img {
-    position: relative;
-    top: -6.85rem;
-  }
-
-  .hamburger {
-    position: relative;
-    top: -6.85rem;
-  }
-
+  /* Reset navbar to top for mobile */
   .navbar {
     top: 0;
     left: 0;
@@ -491,7 +451,6 @@ body {
     align-items: center;
   }
 
-
   h1 {
     font-size: 35px;
     margin-bottom: 20px;
@@ -503,18 +462,16 @@ body {
     margin-bottom: 30px;
     line-height: 1.6;
   }
-
 }
 
+/* BACKGROUND STARS */
 #stars {
-  background: radial-gradient(circle at 70% 50%, rgba(20, 20, 50, 0.4) 0%, rgba(0, 0, 0, 0) 60%);
+  background-color: #000000; /* Force Solid Black background */
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  /* So it doesn't interfere with clicks */
   z-index: -1;
-  /* Puts stars behind all content */
 }
