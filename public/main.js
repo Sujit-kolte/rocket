@@ -1,94 +1,96 @@
-gsap.registerPlugin(ScrollTrigger);
+document.addEventListener("DOMContentLoaded", () => {
+  // ✅ SAFETY CHECK: Ensure GSAP is loaded before running animations
+  if (typeof gsap === "undefined") {
+    console.warn("GSAP not loaded. Animations skipped.");
+    return;
+  }
 
-// Animate content sections on scroll
-document.querySelectorAll(".content").forEach((content) => {
-  gsap.fromTo(
-    content,
-    { opacity: 0, y: 50 },
-    {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      scrollTrigger: {
-        trigger: content,
-        start: "top center",
-        end: "bottom center",
-        toggleActions: "play none none reverse",
-      },
-    },
-  );
-});
+  gsap.registerPlugin(ScrollTrigger);
 
-// Parallax effect for backgrounds
-document.querySelectorAll(".background").forEach((bg) => {
-  gsap.to(bg, {
-    yPercent: 30,
-    ease: "none",
-    scrollTrigger: {
-      trigger: bg.parentElement,
-      start: "top bottom",
-      end: "bottom top",
-      scrub: true,
-    },
-  });
-});
-
-// Animate stats counting up
-const stats = document.querySelectorAll(".stat-number");
-stats.forEach((stat) => {
-  const value = parseInt(stat.textContent);
-  gsap.fromTo(
-    stat,
-    { textContent: 0 },
-    {
-      textContent: value,
-      duration: 2,
-      ease: "power1.out",
-      snap: { textContent: 1 },
-      scrollTrigger: {
-        trigger: stat,
-        start: "top center+=100",
-        toggleActions: "play none none reverse",
-      },
-    },
-  );
-});
-
-// Smooth scroll navigation
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute("href")).scrollIntoView({
-      behavior: "smooth",
-    });
-  });
-});
-const hamburger = document.querySelector(".hamburger");
-const sideMenu = document.querySelector(".side-menu");
-const overlay = document.querySelector(".overlay");
-const menuLinks = document.querySelectorAll(".side-menu a");
-
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-  sideMenu.classList.toggle("active");
-  overlay.classList.toggle("active");
-
-  // Reset animations when closing
-  if (!sideMenu.classList.contains("active")) {
-    menuLinks.forEach((link) => {
-      link.style.opacity = "0";
-      link.style.transform = "translateX(50px)";
+  // 1. Animate Content Sections on Scroll
+  const contentSections = document.querySelectorAll(".content");
+  if (contentSections.length > 0) {
+    contentSections.forEach((content) => {
+      gsap.fromTo(
+        content,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          scrollTrigger: {
+            trigger: content,
+            start: "top center",
+            end: "bottom center",
+            toggleActions: "play none none reverse",
+          },
+        },
+      );
     });
   }
-});
 
-overlay.addEventListener("click", () => {
-  hamburger.classList.remove("active");
-  sideMenu.classList.remove("active");
-  overlay.classList.remove("active");
+  // 2. Parallax Effect for Backgrounds
+  const backgrounds = document.querySelectorAll(".background");
+  if (backgrounds.length > 0) {
+    backgrounds.forEach((bg) => {
+      gsap.to(bg, {
+        yPercent: 30,
+        ease: "none",
+        scrollTrigger: {
+          trigger: bg.parentElement,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    });
+  }
 
-  menuLinks.forEach((link) => {
-    link.style.opacity = "0";
-    link.style.transform = "translateX(50px)";
+  // 3. Animate Stats (Fixed Logic: Uses a Proxy Object)
+  // The previous method required the TextPlugin. This method works without it.
+  const stats = document.querySelectorAll(".stat-number");
+  if (stats.length > 0) {
+    stats.forEach((stat) => {
+      const rawText = stat.textContent;
+      const endValue = parseInt(rawText, 10); // Get the number
+      const suffix = rawText.replace(/[0-9]/g, ""); // Get text like '+' or '%'
+
+      // Create a dummy object to animate
+      let counter = { val: 0 };
+
+      gsap.to(counter, {
+        val: endValue,
+        duration: 2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: stat,
+          start: "top 85%", // Starts slightly earlier for better UX
+          toggleActions: "play none none reverse",
+        },
+        onUpdate: function () {
+          // Update the text on screen
+          stat.textContent = Math.ceil(counter.val) + suffix;
+        },
+      });
+    });
+  }
+
+  // 4. Smooth Scroll for Anchor Links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute("href");
+      const targetElement = document.querySelector(targetId);
+
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+    });
   });
+
+  // ❌ REMOVED: Sidebar/Hamburger Logic
+  // Reason: This is already handled by 'sidebar.js'.
+  // Keeping it here would cause the menu to break.
 });
