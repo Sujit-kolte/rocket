@@ -2,27 +2,16 @@
 <html lang="en">
 
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3NZWMYC10"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-
-    gtag("config", "G-K3NZWMYC10");
-  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/x-icon" href="/assets/oldblacklogo-BRLOJu6J.png" />
-  <title>Projects</title>
+  <title>Archive | STES Rocketry</title>
   <script src="../page-transition.js"></script>
-  <link rel="canonical" href="https://stesrocketry.in/" />
-  <meta name="robots" content="noindex, nofollow" />
-  <script type="module" crossorigin src="/assets/projects-BpTdG5VQ.js"></script>
+  <script src="../sidebar.js"></script>
+  <script type="module" crossorigin src="/assets/archive-BzHWUdYs.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
-  <link rel="stylesheet" crossorigin href="/assets/projects-DAT52kj-.css">
+  <link rel="stylesheet" crossorigin href="/assets/archive-ut5KBYtM.css">
+  <link rel="stylesheet" crossorigin href="/assets/style-CfRIrK20.css">
   <link rel="stylesheet" crossorigin href="/assets/page-transition-BSGtmtMC.css">
 </head>
 
@@ -32,27 +21,32 @@
       <div class="logo"><img src="/assets/oldlogo-D3zr-lpU.png" alt="" /></div>
       <div class="nav-center nav-links">
         <a href="../index.html">Home</a>
-        <a href="../projects/projects.html" id="vehicle">Projects</a>
+        <a href="../projects/projects.html">Projects</a>
         <a href="../sponsors/sponsors.html">Sponsors</a>
         <a href="../members/members.html">Members</a>
-        <!-- <a href="../archive/archive.html">Archive</a>-->
+        <a href="../archive/archive.html" id="archive">Archive</a>
         <a href="../contact-us/contacus.html">Contact Us</a>
       </div>
       <div class="hamburger"><span></span><span></span><span></span></div>
     </nav>
     <div class="side-menu">
       <a href="../index.html">Home</a>
-      <a href="../projects/projects.html" id="vehicle">Projects</a>
+      <a href="../projects/projects.html">Projects</a>
       <a href="../sponsors/sponsors.html">Sponsors</a>
       <a href="../members/members.html">Members</a>
-      <!-- <a href="../archive/archive.html">Archive</a>-->
+      <a href="../archive/archive.html" id="archive">Archive</a>
       <a href="../contact-us/contacus.html">Contact Us</a>
     </div>
-
     <div class="overlay"></div>
+    <section class="archive-section">
+      <div class="journey-header">
+        <p class="archive-subtitle">The trajectory of STES Rocketry</p>
+      </div>
 
-    <!-- Page Content -->
-    <section class="projects-section">
+      <div class="flight-path-container">
+        <!-- The central line/path -->
+        <div class="flight-path-line"></div>
+      </div>
     </section>
     <footer class="footer">
       <div class="footer-content">
@@ -69,9 +63,34 @@
       </div>
     </footer>
   </div>
+  <script>
+    document.querySelectorAll(".memory-card").forEach((card) => {
+      card.addEventListener("click", () => {
+        const isActive = card.classList.contains("active");
+        document.body.classList.toggle("card-zoomed", !isActive);
+        card.classList.toggle("active");
+
+        const leftImg = card.querySelector(".pop-img.left");
+        const rightImg = card.querySelector(".pop-img.right");
+
+        if (!isActive) {
+          leftImg.classList.add("show");
+          rightImg.classList.add("show");
+          leftImg.classList.remove("hidden");
+          rightImg.classList.remove("hidden");
+        } else {
+          leftImg.classList.remove("show");
+          rightImg.classList.remove("show");
+          setTimeout(() => {
+            leftImg.classList.add("hidden");
+            rightImg.classList.add("hidden");
+          }, 1000);
+        }
+      });
+    });
+  </script>
   <canvas id="stars"></canvas>
   <script src="../stars.js"></script>
-  <script src="../sidebar.js"></script>
 </body>
 
 </html>
